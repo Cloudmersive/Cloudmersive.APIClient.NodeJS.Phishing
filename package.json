@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "cloudmersive-phishingapi-client": "file:client",
+    "cloudmersive-spamapi-client": "file:client"
+  }
+}
