@@ -2,10 +2,10 @@
 
 CloudmersivePhishingapiClient - JavaScript client for cloudmersive-phishingapi-client
 Easily and directly scan and block phishing security threats in input.
-[Cloudmersive Spam Detection API](https://cloudmersive.com/phishing-detection-api) provides advanced AI phishing detection capabilities.
+[Cloudmersive Phishing Detection API](https://cloudmersive.com/phishing-detection-api) provides advanced AI phishing detection capabilities.
 
 - API version: v1
-- Package version: 2.0.0
+- Package version: 2.0.1
 
 
 ## Installation

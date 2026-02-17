@@ -33,7 +33,7 @@
   /**
    * PhishingDetection service.
    * @module api/PhishingDetectionApi
-   * @version 2.0.0
+   * @version 2.0.1
    */
 
   /**
