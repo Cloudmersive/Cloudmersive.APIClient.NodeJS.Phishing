@@ -52,6 +52,12 @@
         // expect(instance.phishingRiskLevel).to.be(expectedValueLiteral);
       });
 
+      it('should have the property confidenceLevel (base name: "ConfidenceLevel")', function() {
+        // TODO: update the code to test the property confidenceLevel
+        expect(instance).to.have.property('confidenceLevel');
+        // expect(instance.confidenceLevel).to.be(expectedValueLiteral);
+      });
+
       it('should have the property analysisRationale (base name: "AnalysisRationale")', function() {
         // TODO: update the code to test the property analysisRationale
         expect(instance).to.have.property('analysisRationale');

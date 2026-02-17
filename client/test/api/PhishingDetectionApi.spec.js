@@ -47,6 +47,7 @@
           opts.body.htmlBody = "";
           opts.body.allowLowReputationSenders = false;
           opts.body.allowSanctioned = false;
+          opts.body.customPolicyID = "";
           opts.body.inputEmailFile = ""undefined;
 
           instance.phishingDetectEmailAdvancedPost(opts, function(error, data, response) {
@@ -90,6 +91,7 @@
           /*
           var opts = {};
           opts.model = "Advanced";
+          opts.customPolicyId = "customPolicyId_example";
           opts.inputFile = "/path/to/file.txt";
 
           instance.phishingDetectFileAdvancedPost(opts, function(error, data, response) {
@@ -103,6 +105,8 @@
             expect(data.cleanResult).to.be(false);
             expect(data.phishingRiskLevel).to.be.a('number');
             expect(data.phishingRiskLevel).to.be(0.0);
+            expect(data.confidenceLevel).to.be.a('number');
+            expect(data.confidenceLevel).to.be(0.0);
             expect(data.analysisRationale).to.be.a('string');
             expect(data.analysisRationale).to.be("");
 
@@ -146,6 +150,15 @@
           opts.body = new CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest();
           opts.body.inputString = "";
           opts.body.model = "";
+          opts.body.customPolicyID = "";
+          opts.body.provideAnalysisRationale = false;
+          opts.body.textType = "";
+          opts.body.fromName = "";
+          opts.body.toName = "";
+          opts.body.fromPhoneNumber = "";
+          opts.body.toPhoneNumber = "";
+          opts.body.fromEmailAddress = "";
+          opts.body.toEmailAddress = "";
 
           instance.phishingDetectTextStringAdvancedPost(opts, function(error, data, response) {
             if (error) {
@@ -158,6 +171,48 @@
             expect(data.cleanResult).to.be(false);
             expect(data.phishingRiskLevel).to.be.a('number');
             expect(data.phishingRiskLevel).to.be(0.0);
+            expect(data.confidenceLevel).to.be.a('number');
+            expect(data.confidenceLevel).to.be(0.0);
+            expect(data.analysisRationale).to.be.a('string');
+            expect(data.analysisRationale).to.be("");
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('phishingDetectUrlAdvancedPost', function() {
+        it('should call phishingDetectUrlAdvancedPost successfully', function(done) {
+          // TODO: uncomment, update parameter values for phishingDetectUrlAdvancedPost call and complete the assertions
+          /*
+          var opts = {};
+          opts.body = new CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest();
+          opts.body.url = "";
+          opts.body.customPolicyID = "";
+
+          instance.phishingDetectUrlAdvancedPost(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(CloudmersivePhishingapiClient.PhishingDetectionUrlAdvancedResponse);
+            expect(data.cleanResult).to.be.a('boolean');
+            expect(data.cleanResult).to.be(false);
+            expect(data.phishingRiskLevel).to.be.a('number');
+            expect(data.phishingRiskLevel).to.be(0.0);
+            expect(data.isSsrfThreat).to.be.a('boolean');
+            expect(data.isSsrfThreat).to.be(false);
+            expect(data.containsPhishing).to.be.a('boolean');
+            expect(data.containsPhishing).to.be(false);
+            expect(data.containsUnsolicitedSales).to.be.a('boolean');
+            expect(data.containsUnsolicitedSales).to.be(false);
+            expect(data.containsPromotionalContent).to.be.a('boolean');
+            expect(data.containsPromotionalContent).to.be(false);
+            expect(data.containsPhishingAttempt).to.be.a('boolean');
+            expect(data.containsPhishingAttempt).to.be(false);
             expect(data.analysisRationale).to.be.a('string');
             expect(data.analysisRationale).to.be("");
 

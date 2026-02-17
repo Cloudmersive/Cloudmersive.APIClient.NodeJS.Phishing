@@ -1,6 +1,6 @@
 {
   "name": "cloudmersive-phishingapi-client",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Easily_and_directly_scan_and_block_phishing_security_threats_in_input_",
   "license": "Apache-2.0",
   "main": "src/index.js",

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**phishingDetectFileAdvancedPost**](PhishingDetectionApi.md#phishingDetectFileAdvancedPost) | **POST** /phishing/detect/file/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
 [**phishingDetectFilePost**](PhishingDetectionApi.md#phishingDetectFilePost) | **POST** /phishing/detect/file | Perform AI phishing detection and classification on an input image or document (PDF or DOCX).  Analyzes input content as well as embedded URLs with AI deep learnign to detect phishing and other unsafe content.  Uses 100-125 API calls depending on model selected.
 [**phishingDetectTextStringAdvancedPost**](PhishingDetectionApi.md#phishingDetectTextStringAdvancedPost) | **POST** /phishing/detect/text-string/advanced | Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learnign to detect spam, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
+[**phishingDetectUrlAdvancedPost**](PhishingDetectionApi.md#phishingDetectUrlAdvancedPost) | **POST** /phishing/detect/url/advanced | Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
 
 
 <a name="phishingDetectEmailAdvancedPost"></a>
@@ -83,6 +84,7 @@ var apiInstance = new CloudmersivePhishingapiClient.PhishingDetectionApi();
 
 var opts = { 
   'model': "Advanced", // String | 
+  'customPolicyId': "customPolicyId_example", // String | 
   'inputFile': "/path/to/file.txt" // File | 
 };
 
@@ -101,6 +103,7 @@ apiInstance.phishingDetectFileAdvancedPost(opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **model** | **String**|  | [optional] [default to Advanced]
+ **customPolicyId** | **String**|  | [optional] 
  **inputFile** | **File**|  | [optional] 
 
 ### Return type
@@ -212,6 +215,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**PhishingDetectionAdvancedResponse**](PhishingDetectionAdvancedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/_*+json
+ - **Accept**: text/plain, application/json, text/json
+
+<a name="phishingDetectUrlAdvancedPost"></a>
+# **phishingDetectUrlAdvancedPost**
+> PhishingDetectionUrlAdvancedResponse phishingDetectUrlAdvancedPost(opts)
+
+Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
+
+### Example
+```javascript
+var CloudmersivePhishingapiClient = require('cloudmersive-phishingapi-client');
+var defaultClient = CloudmersivePhishingapiClient.ApiClient.instance;
+
+// Configure API key authorization: Apikey
+var Apikey = defaultClient.authentications['Apikey'];
+Apikey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//Apikey.apiKeyPrefix = 'Token';
+
+var apiInstance = new CloudmersivePhishingapiClient.PhishingDetectionApi();
+
+var opts = { 
+  'body': new CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest() // AdvancedUrlDetectionRequest | URL phishing detection request
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.phishingDetectUrlAdvancedPost(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**AdvancedUrlDetectionRequest**](AdvancedUrlDetectionRequest.md)| URL phishing detection request | [optional] 
+
+### Return type
+
+[**PhishingDetectionUrlAdvancedResponse**](PhishingDetectionUrlAdvancedResponse.md)
 
 ### Authorization
 

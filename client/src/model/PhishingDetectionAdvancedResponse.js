@@ -33,7 +33,7 @@
   /**
    * The PhishingDetectionAdvancedResponse model module.
    * @module model/PhishingDetectionAdvancedResponse
-   * @version 2.0.1
+   * @version 2.0.2
    */
 
   /**
@@ -61,6 +61,8 @@
         obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
       if (data.hasOwnProperty('PhishingRiskLevel'))
         obj.phishingRiskLevel = ApiClient.convertToType(data['PhishingRiskLevel'], 'Number');
+      if (data.hasOwnProperty('ConfidenceLevel'))
+        obj.confidenceLevel = ApiClient.convertToType(data['ConfidenceLevel'], 'Number');
       if (data.hasOwnProperty('AnalysisRationale'))
         obj.analysisRationale = ApiClient.convertToType(data['AnalysisRationale'], 'String');
     }
@@ -78,6 +80,12 @@
    * @member {Number} phishingRiskLevel
    */
   exports.prototype.phishingRiskLevel = undefined;
+
+  /**
+   * Confidence level between 0.0 and 1.0 where values over 0.9 indicate high confidence
+   * @member {Number} confidenceLevel
+   */
+  exports.prototype.confidenceLevel = undefined;
 
   /**
    * Rationale for why the conclusion was formed

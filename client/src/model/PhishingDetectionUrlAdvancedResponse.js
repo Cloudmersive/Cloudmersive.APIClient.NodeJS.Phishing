@@ -25,21 +25,21 @@
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionEmailAdvancedResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
+    root.CloudmersivePhishingapiClient.PhishingDetectionUrlAdvancedResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
   }
 }(this, function(ApiClient, ModelObject) {
   'use strict';
 
   /**
-   * The PhishingDetectionEmailAdvancedResponse model module.
-   * @module model/PhishingDetectionEmailAdvancedResponse
+   * The PhishingDetectionUrlAdvancedResponse model module.
+   * @module model/PhishingDetectionUrlAdvancedResponse
    * @version 2.0.2
    */
 
   /**
-   * Constructs a new <code>PhishingDetectionEmailAdvancedResponse</code>.
-   * Result of detecting phishing using AI
-   * @alias module:model/PhishingDetectionEmailAdvancedResponse
+   * Constructs a new <code>PhishingDetectionUrlAdvancedResponse</code>.
+   * Result of detecting phishing from a URL using AI
+   * @alias module:model/PhishingDetectionUrlAdvancedResponse
    * @class
    * @extends Object
    */
@@ -47,11 +47,11 @@
   };
 
   /**
-   * Constructs a <code>PhishingDetectionEmailAdvancedResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PhishingDetectionUrlAdvancedResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PhishingDetectionEmailAdvancedResponse} obj Optional instance to populate.
-   * @return {module:model/PhishingDetectionEmailAdvancedResponse} The populated <code>PhishingDetectionEmailAdvancedResponse</code> instance.
+   * @param {module:model/PhishingDetectionUrlAdvancedResponse} obj Optional instance to populate.
+   * @return {module:model/PhishingDetectionUrlAdvancedResponse} The populated <code>PhishingDetectionUrlAdvancedResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -61,14 +61,10 @@
         obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
       if (data.hasOwnProperty('PhishingRiskLevel'))
         obj.phishingRiskLevel = ApiClient.convertToType(data['PhishingRiskLevel'], 'Number');
-      if (data.hasOwnProperty('SpamRiskLevel'))
-        obj.spamRiskLevel = ApiClient.convertToType(data['SpamRiskLevel'], 'Number');
-      if (data.hasOwnProperty('ContainsLowReputationSender'))
-        obj.containsLowReputationSender = ApiClient.convertToType(data['ContainsLowReputationSender'], 'Boolean');
+      if (data.hasOwnProperty('IsSsrfThreat'))
+        obj.isSsrfThreat = ApiClient.convertToType(data['IsSsrfThreat'], 'Boolean');
       if (data.hasOwnProperty('ContainsPhishing'))
         obj.containsPhishing = ApiClient.convertToType(data['ContainsPhishing'], 'Boolean');
-      if (data.hasOwnProperty('ContainsSpam'))
-        obj.containsSpam = ApiClient.convertToType(data['ContainsSpam'], 'Boolean');
       if (data.hasOwnProperty('ContainsUnsolicitedSales'))
         obj.containsUnsolicitedSales = ApiClient.convertToType(data['ContainsUnsolicitedSales'], 'Boolean');
       if (data.hasOwnProperty('ContainsPromotionalContent'))
@@ -94,43 +90,31 @@
   exports.prototype.phishingRiskLevel = undefined;
 
   /**
-   * Overall phishing spam level between 0.0 and 1.0
-   * @member {Number} spamRiskLevel
+   * True if the URL is an SSRF threat
+   * @member {Boolean} isSsrfThreat
    */
-  exports.prototype.spamRiskLevel = undefined;
+  exports.prototype.isSsrfThreat = undefined;
 
   /**
-   * True if the input email is from a low reputation sender
-   * @member {Boolean} containsLowReputationSender
-   */
-  exports.prototype.containsLowReputationSender = undefined;
-
-  /**
-   * True if the input email contains phishing threat risks, false otherwise
+   * True if the URL contains phishing threat risks, false otherwise
    * @member {Boolean} containsPhishing
    */
   exports.prototype.containsPhishing = undefined;
 
   /**
-   * True if the email contains phishing threat risks, false otherwise
-   * @member {Boolean} containsSpam
-   */
-  exports.prototype.containsSpam = undefined;
-
-  /**
-   * True if the input email contains unsolicited sales, false otherwise
+   * True if the URL contains unsolicited sales, false otherwise
    * @member {Boolean} containsUnsolicitedSales
    */
   exports.prototype.containsUnsolicitedSales = undefined;
 
   /**
-   * True if the input email contains promotional content, false otherwise
+   * True if the URL contains promotional content, false otherwise
    * @member {Boolean} containsPromotionalContent
    */
   exports.prototype.containsPromotionalContent = undefined;
 
   /**
-   * True if the input email contains a phishing attempt, false otherwise
+   * True if the URL contains a phishing attempt, false otherwise
    * @member {Boolean} containsPhishingAttempt
    */
   exports.prototype.containsPhishingAttempt = undefined;

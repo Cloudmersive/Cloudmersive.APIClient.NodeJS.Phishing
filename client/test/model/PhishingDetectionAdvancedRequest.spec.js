@@ -52,6 +52,60 @@
         // expect(instance.model).to.be(expectedValueLiteral);
       });
 
+      it('should have the property customPolicyID (base name: "CustomPolicyID")', function() {
+        // TODO: update the code to test the property customPolicyID
+        expect(instance).to.have.property('customPolicyID');
+        // expect(instance.customPolicyID).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property provideAnalysisRationale (base name: "ProvideAnalysisRationale")', function() {
+        // TODO: update the code to test the property provideAnalysisRationale
+        expect(instance).to.have.property('provideAnalysisRationale');
+        // expect(instance.provideAnalysisRationale).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property textType (base name: "TextType")', function() {
+        // TODO: update the code to test the property textType
+        expect(instance).to.have.property('textType');
+        // expect(instance.textType).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property fromName (base name: "FromName")', function() {
+        // TODO: update the code to test the property fromName
+        expect(instance).to.have.property('fromName');
+        // expect(instance.fromName).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property toName (base name: "ToName")', function() {
+        // TODO: update the code to test the property toName
+        expect(instance).to.have.property('toName');
+        // expect(instance.toName).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property fromPhoneNumber (base name: "FromPhoneNumber")', function() {
+        // TODO: update the code to test the property fromPhoneNumber
+        expect(instance).to.have.property('fromPhoneNumber');
+        // expect(instance.fromPhoneNumber).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property toPhoneNumber (base name: "ToPhoneNumber")', function() {
+        // TODO: update the code to test the property toPhoneNumber
+        expect(instance).to.have.property('toPhoneNumber');
+        // expect(instance.toPhoneNumber).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property fromEmailAddress (base name: "FromEmailAddress")', function() {
+        // TODO: update the code to test the property fromEmailAddress
+        expect(instance).to.have.property('fromEmailAddress');
+        // expect(instance.fromEmailAddress).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property toEmailAddress (base name: "ToEmailAddress")', function() {
+        // TODO: update the code to test the property toEmailAddress
+        expect(instance).to.have.property('toEmailAddress');
+        // expect(instance.toEmailAddress).to.be(expectedValueLiteral);
+      });
+
     });
   });
 

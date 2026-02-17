@@ -33,7 +33,7 @@
   /**
    * The AdvancedEmailDetectionRequest model module.
    * @module model/AdvancedEmailDetectionRequest
-   * @version 2.0.1
+   * @version 2.0.2
    */
 
   /**
@@ -69,6 +69,8 @@
         obj.allowLowReputationSenders = ApiClient.convertToType(data['AllowLowReputationSenders'], 'Boolean');
       if (data.hasOwnProperty('AllowSanctioned'))
         obj.allowSanctioned = ApiClient.convertToType(data['AllowSanctioned'], 'Boolean');
+      if (data.hasOwnProperty('CustomPolicyID'))
+        obj.customPolicyID = ApiClient.convertToType(data['CustomPolicyID'], 'String');
       if (data.hasOwnProperty('InputEmailFile'))
         obj.inputEmailFile = ApiClient.convertToType(data['InputEmailFile'], 'Blob');
     }
@@ -112,6 +114,13 @@
   exports.prototype.allowSanctioned = undefined;
 
   /**
+   * Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+   * @member {String} customPolicyID
+   */
+  exports.prototype.customPolicyID = undefined;
+
+  /**
+   * Optional: Input email file bytes (EML, PDF, etc.).  If not provided, HtmlBody will be used instead.
    * @member {Blob} inputEmailFile
    */
   exports.prototype.inputEmailFile = undefined;

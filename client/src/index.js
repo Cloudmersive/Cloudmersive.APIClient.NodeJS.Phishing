@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'api/PhishingDetectionApi'], factory);
+    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionUrlAdvancedResponse', 'api/PhishingDetectionApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AdvancedEmailDetectionRequest'), require('./model/PhishingDetectionAdvancedRequest'), require('./model/PhishingDetectionAdvancedResponse'), require('./model/PhishingDetectionEmailAdvancedResponse'), require('./model/PhishingDetectionResponse'), require('./api/PhishingDetectionApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AdvancedEmailDetectionRequest'), require('./model/AdvancedUrlDetectionRequest'), require('./model/PhishingDetectionAdvancedRequest'), require('./model/PhishingDetectionAdvancedResponse'), require('./model/PhishingDetectionEmailAdvancedResponse'), require('./model/PhishingDetectionResponse'), require('./model/PhishingDetectionUrlAdvancedResponse'), require('./api/PhishingDetectionApi'));
   }
-}(function(ApiClient, AdvancedEmailDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionApi) {
+}(function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionUrlAdvancedResponse, PhishingDetectionApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 2.0.1
+   * @version 2.0.2
    */
   var exports = {
     /**
@@ -66,6 +66,11 @@
      * @property {module:model/AdvancedEmailDetectionRequest}
      */
     AdvancedEmailDetectionRequest: AdvancedEmailDetectionRequest,
+    /**
+     * The AdvancedUrlDetectionRequest model constructor.
+     * @property {module:model/AdvancedUrlDetectionRequest}
+     */
+    AdvancedUrlDetectionRequest: AdvancedUrlDetectionRequest,
     /**
      * The PhishingDetectionAdvancedRequest model constructor.
      * @property {module:model/PhishingDetectionAdvancedRequest}
@@ -86,6 +91,11 @@
      * @property {module:model/PhishingDetectionResponse}
      */
     PhishingDetectionResponse: PhishingDetectionResponse,
+    /**
+     * The PhishingDetectionUrlAdvancedResponse model constructor.
+     * @property {module:model/PhishingDetectionUrlAdvancedResponse}
+     */
+    PhishingDetectionUrlAdvancedResponse: PhishingDetectionUrlAdvancedResponse,
     /**
      * The PhishingDetectionApi service constructor.
      * @property {module:api/PhishingDetectionApi}

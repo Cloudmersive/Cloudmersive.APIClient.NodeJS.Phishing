@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse'], factory);
+    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionUrlAdvancedResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AdvancedEmailDetectionRequest'), require('../model/PhishingDetectionAdvancedRequest'), require('../model/PhishingDetectionAdvancedResponse'), require('../model/PhishingDetectionEmailAdvancedResponse'), require('../model/PhishingDetectionResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AdvancedEmailDetectionRequest'), require('../model/AdvancedUrlDetectionRequest'), require('../model/PhishingDetectionAdvancedRequest'), require('../model/PhishingDetectionAdvancedResponse'), require('../model/PhishingDetectionEmailAdvancedResponse'), require('../model/PhishingDetectionResponse'), require('../model/PhishingDetectionUrlAdvancedResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionApi = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.AdvancedEmailDetectionRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionEmailAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionResponse);
+    root.CloudmersivePhishingapiClient.PhishingDetectionApi = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.AdvancedEmailDetectionRequest, root.CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionEmailAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionResponse, root.CloudmersivePhishingapiClient.PhishingDetectionUrlAdvancedResponse);
   }
-}(this, function(ApiClient, AdvancedEmailDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse) {
+}(this, function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionUrlAdvancedResponse) {
   'use strict';
 
   /**
    * PhishingDetection service.
    * @module api/PhishingDetectionApi
-   * @version 2.0.1
+   * @version 2.0.2
    */
 
   /**
@@ -102,6 +102,7 @@
      * Perform advanced AI phishing detection and classification against input text string.  Analyzes input content as well as embedded URLs with AI deep learning to detect phishing, phishing and other unsafe content.  Uses 25-100 API calls depending on model selected.
      * @param {Object} opts Optional parameters
      * @param {String} opts.model  (default to Advanced)
+     * @param {String} opts.customPolicyId 
      * @param {File} opts.inputFile 
      * @param {module:api/PhishingDetectionApi~phishingDetectFileAdvancedPostCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PhishingDetectionAdvancedResponse}
@@ -118,7 +119,8 @@
       var collectionQueryParams = {
       };
       var headerParams = {
-        'model': opts['model']
+        'model': opts['model'],
+        'customPolicyId': opts['customPolicyId']
       };
       var formParams = {
         'inputFile': opts['inputFile']
@@ -220,6 +222,49 @@
 
       return this.apiClient.callApi(
         '/phishing/detect/text-string/advanced', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the phishingDetectUrlAdvancedPost operation.
+     * @callback module:api/PhishingDetectionApi~phishingDetectUrlAdvancedPostCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PhishingDetectionUrlAdvancedResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Perform advanced AI phishing detection and classification against an input URL.  Retrieves the URL content, checks for SSRF threats, and analyzes the page with AI deep learning to detect phishing and other unsafe content.  Uses 100-125 API calls.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/AdvancedUrlDetectionRequest} opts.body URL phishing detection request
+     * @param {module:api/PhishingDetectionApi~phishingDetectUrlAdvancedPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PhishingDetectionUrlAdvancedResponse}
+     */
+    this.phishingDetectUrlAdvancedPost = function(opts, callback) {
+      opts = opts || {};
+      var postBody = opts['body'];
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var returnType = PhishingDetectionUrlAdvancedResponse;
+
+      return this.apiClient.callApi(
+        '/phishing/detect/url/advanced', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

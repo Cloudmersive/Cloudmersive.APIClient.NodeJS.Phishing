@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **htmlBody** | **String** | Body of the email in HTML, or text | [optional] 
 **allowLowReputationSenders** | **Boolean** | Allow email from low reputation senders and domains | [optional] 
 **allowSanctioned** | **Boolean** | True to allow sanctioned countries and certain known sanctioned entities, false otherwise (default) | [optional] 
-**inputEmailFile** | **Blob** |  | [optional] 
+**customPolicyID** | **String** | Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud | [optional] 
+**inputEmailFile** | **Blob** | Optional: Input email file bytes (EML, PDF, etc.).  If not provided, HtmlBody will be used instead. | [optional] 
 
 

@@ -25,21 +25,21 @@
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
+    root.CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
   }
 }(this, function(ApiClient, ModelObject) {
   'use strict';
 
   /**
-   * The PhishingDetectionResponse model module.
-   * @module model/PhishingDetectionResponse
+   * The AdvancedUrlDetectionRequest model module.
+   * @module model/AdvancedUrlDetectionRequest
    * @version 2.0.2
    */
 
   /**
-   * Constructs a new <code>PhishingDetectionResponse</code>.
-   * Result of detecting phishing using AI
-   * @alias module:model/PhishingDetectionResponse
+   * Constructs a new <code>AdvancedUrlDetectionRequest</code>.
+   * Request to detect phishing from a URL
+   * @alias module:model/AdvancedUrlDetectionRequest
    * @class
    * @extends Object
    */
@@ -47,27 +47,35 @@
   };
 
   /**
-   * Constructs a <code>PhishingDetectionResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>AdvancedUrlDetectionRequest</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PhishingDetectionResponse} obj Optional instance to populate.
-   * @return {module:model/PhishingDetectionResponse} The populated <code>PhishingDetectionResponse</code> instance.
+   * @param {module:model/AdvancedUrlDetectionRequest} obj Optional instance to populate.
+   * @return {module:model/AdvancedUrlDetectionRequest} The populated <code>AdvancedUrlDetectionRequest</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
       ApiClient.constructFromObject(data, obj, 'ModelObject');
-      if (data.hasOwnProperty('CleanResult'))
-        obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
+      if (data.hasOwnProperty('Url'))
+        obj.url = ApiClient.convertToType(data['Url'], 'String');
+      if (data.hasOwnProperty('CustomPolicyID'))
+        obj.customPolicyID = ApiClient.convertToType(data['CustomPolicyID'], 'String');
     }
     return obj;
   }
 
   /**
-   * True if the result is not phishing (clean), and false otherwise
-   * @member {Boolean} cleanResult
+   * URL to check for phishing
+   * @member {String} url
    */
-  exports.prototype.cleanResult = undefined;
+  exports.prototype.url = undefined;
+
+  /**
+   * Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+   * @member {String} customPolicyID
+   */
+  exports.prototype.customPolicyID = undefined;
 
   exports.prototype.additionalProperties = new Map();
 

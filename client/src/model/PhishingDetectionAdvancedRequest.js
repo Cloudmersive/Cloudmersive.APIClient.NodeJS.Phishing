@@ -33,7 +33,7 @@
   /**
    * The PhishingDetectionAdvancedRequest model module.
    * @module model/PhishingDetectionAdvancedRequest
-   * @version 2.0.1
+   * @version 2.0.2
    */
 
   /**
@@ -61,6 +61,24 @@
         obj.inputString = ApiClient.convertToType(data['InputString'], 'String');
       if (data.hasOwnProperty('Model'))
         obj.model = ApiClient.convertToType(data['Model'], 'String');
+      if (data.hasOwnProperty('CustomPolicyID'))
+        obj.customPolicyID = ApiClient.convertToType(data['CustomPolicyID'], 'String');
+      if (data.hasOwnProperty('ProvideAnalysisRationale'))
+        obj.provideAnalysisRationale = ApiClient.convertToType(data['ProvideAnalysisRationale'], 'Boolean');
+      if (data.hasOwnProperty('TextType'))
+        obj.textType = ApiClient.convertToType(data['TextType'], 'String');
+      if (data.hasOwnProperty('FromName'))
+        obj.fromName = ApiClient.convertToType(data['FromName'], 'String');
+      if (data.hasOwnProperty('ToName'))
+        obj.toName = ApiClient.convertToType(data['ToName'], 'String');
+      if (data.hasOwnProperty('FromPhoneNumber'))
+        obj.fromPhoneNumber = ApiClient.convertToType(data['FromPhoneNumber'], 'String');
+      if (data.hasOwnProperty('ToPhoneNumber'))
+        obj.toPhoneNumber = ApiClient.convertToType(data['ToPhoneNumber'], 'String');
+      if (data.hasOwnProperty('FromEmailAddress'))
+        obj.fromEmailAddress = ApiClient.convertToType(data['FromEmailAddress'], 'String');
+      if (data.hasOwnProperty('ToEmailAddress'))
+        obj.toEmailAddress = ApiClient.convertToType(data['ToEmailAddress'], 'String');
     }
     return obj;
   }
@@ -76,6 +94,60 @@
    * @member {String} model
    */
   exports.prototype.model = undefined;
+
+  /**
+   * Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
+   * @member {String} customPolicyID
+   */
+  exports.prototype.customPolicyID = undefined;
+
+  /**
+   * Optional: Set to true to include an analysis rationale in the response explaining why the content was or was not flagged.  Default is true.
+   * @member {Boolean} provideAnalysisRationale
+   */
+  exports.prototype.provideAnalysisRationale = undefined;
+
+  /**
+   * Optional: Type of text being analyzed. Must be one of: \"Text Message\", \"User Message\", \"Sales Lead\", \"Email Message\", \"Support Case\", \"Other\".
+   * @member {String} textType
+   */
+  exports.prototype.textType = undefined;
+
+  /**
+   * Optional: Name of the sender
+   * @member {String} fromName
+   */
+  exports.prototype.fromName = undefined;
+
+  /**
+   * Optional: Name of the recipient
+   * @member {String} toName
+   */
+  exports.prototype.toName = undefined;
+
+  /**
+   * Optional: Phone number of the sender
+   * @member {String} fromPhoneNumber
+   */
+  exports.prototype.fromPhoneNumber = undefined;
+
+  /**
+   * Optional: Phone number of the recipient
+   * @member {String} toPhoneNumber
+   */
+  exports.prototype.toPhoneNumber = undefined;
+
+  /**
+   * Optional: Email address of the sender
+   * @member {String} fromEmailAddress
+   */
+  exports.prototype.fromEmailAddress = undefined;
+
+  /**
+   * Optional: Email address of the recipient
+   * @member {String} toEmailAddress
+   */
+  exports.prototype.toEmailAddress = undefined;
 
   exports.prototype.additionalProperties = new Map();
 

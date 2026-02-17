@@ -76,6 +76,12 @@
         // expect(instance.allowSanctioned).to.be(expectedValueLiteral);
       });
 
+      it('should have the property customPolicyID (base name: "CustomPolicyID")', function() {
+        // TODO: update the code to test the property customPolicyID
+        expect(instance).to.have.property('customPolicyID');
+        // expect(instance.customPolicyID).to.be(expectedValueLiteral);
+      });
+
       it('should have the property inputEmailFile (base name: "InputEmailFile")', function() {
         // TODO: update the code to test the property inputEmailFile
         expect(instance).to.have.property('inputEmailFile');
