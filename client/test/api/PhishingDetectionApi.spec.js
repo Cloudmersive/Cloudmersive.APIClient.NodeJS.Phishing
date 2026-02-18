@@ -103,12 +103,42 @@
             expect(data).to.be.a(CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse);
             expect(data.cleanResult).to.be.a('boolean');
             expect(data.cleanResult).to.be(false);
-            expect(data.phishingRiskLevel).to.be.a('number');
-            expect(data.phishingRiskLevel).to.be(0.0);
+            expect(data.containsPhishing).to.be.a('boolean');
+            expect(data.containsPhishing).to.be(false);
+            expect(data.containsUnsolicitedSales).to.be.a('boolean');
+            expect(data.containsUnsolicitedSales).to.be(false);
+            expect(data.containsPromotionalContent).to.be.a('boolean');
+            expect(data.containsPromotionalContent).to.be(false);
+            expect(data.containsWebUrls).to.be.a('boolean');
+            expect(data.containsWebUrls).to.be(false);
+            expect(data.containsPhoneNumbers).to.be.a('boolean');
+            expect(data.containsPhoneNumbers).to.be(false);
+            expect(data.containsEmailAddresses).to.be.a('boolean');
+            expect(data.containsEmailAddresses).to.be(false);
             expect(data.confidenceLevel).to.be.a('number');
             expect(data.confidenceLevel).to.be(0.0);
             expect(data.analysisRationale).to.be.a('string');
             expect(data.analysisRationale).to.be("");
+            {
+              let dataCtr = data.unsafeUrls;
+              expect(dataCtr).to.be.an(Array);
+              expect(dataCtr).to.not.be.empty();
+              for (let p in dataCtr) {
+                let data = dataCtr[p];
+                expect(data).to.be.a(CloudmersivePhishingapiClient.UnsafeUrlResult);
+                expect(data.url).to.be.a('string');
+                expect(data.url).to.be("");
+                expect(data.cleanResult).to.be.a('boolean');
+                expect(data.cleanResult).to.be(false);
+                expect(data.isSsrfThreat).to.be.a('boolean');
+                expect(data.isSsrfThreat).to.be(false);
+                expect(data.containsPhishing).to.be.a('boolean');
+                expect(data.containsPhishing).to.be(false);
+                expect(data.containsPhishingAttempt).to.be.a('boolean');
+                expect(data.containsPhishingAttempt).to.be(false);
+
+                      }
+            }
 
             done();
           });
@@ -148,17 +178,23 @@
           /*
           var opts = {};
           opts.body = new CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest();
-          opts.body.inputString = "";
-          opts.body.model = "";
+          opts.body.inputString = "Hello, world!";
+          opts.body.textType = "TextMessage";
+          opts.body.model = "Advanced";
+          opts.body.allowUnsolicitedSales = true;
+          opts.body.allowPromotionalContent = true;
+          opts.body.allowWebUrls = true;
+          opts.body.allowPhoneNumbers = true;
+          opts.body.allowEmailAddresses = true;
+          opts.body.provideUrlAnalysis = true;
           opts.body.customPolicyID = "";
-          opts.body.provideAnalysisRationale = false;
-          opts.body.textType = "";
-          opts.body.fromName = "";
-          opts.body.toName = "";
-          opts.body.fromPhoneNumber = "";
-          opts.body.toPhoneNumber = "";
-          opts.body.fromEmailAddress = "";
-          opts.body.toEmailAddress = "";
+          opts.body.provideAnalysisRationale = true;
+          opts.body.fromName = "John Smith";
+          opts.body.toName = "Jane Doe";
+          opts.body.fromPhoneNumber = "+1-555-123-4567";
+          opts.body.toPhoneNumber = "+1-555-987-6543";
+          opts.body.fromEmailAddress = "john.smith@cloudmersive.com";
+          opts.body.toEmailAddress = "jane.doe@cloudmersive.com";
 
           instance.phishingDetectTextStringAdvancedPost(opts, function(error, data, response) {
             if (error) {
@@ -169,8 +205,69 @@
             expect(data).to.be.a(CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse);
             expect(data.cleanResult).to.be.a('boolean');
             expect(data.cleanResult).to.be(false);
-            expect(data.phishingRiskLevel).to.be.a('number');
-            expect(data.phishingRiskLevel).to.be(0.0);
+            expect(data.containsPhishing).to.be.a('boolean');
+            expect(data.containsPhishing).to.be(false);
+            expect(data.containsUnsolicitedSales).to.be.a('boolean');
+            expect(data.containsUnsolicitedSales).to.be(false);
+            expect(data.containsPromotionalContent).to.be.a('boolean');
+            expect(data.containsPromotionalContent).to.be(false);
+            expect(data.containsWebUrls).to.be.a('boolean');
+            expect(data.containsWebUrls).to.be(false);
+            expect(data.containsPhoneNumbers).to.be.a('boolean');
+            expect(data.containsPhoneNumbers).to.be(false);
+            expect(data.containsEmailAddresses).to.be.a('boolean');
+            expect(data.containsEmailAddresses).to.be(false);
+            expect(data.confidenceLevel).to.be.a('number');
+            expect(data.confidenceLevel).to.be(0.0);
+            expect(data.analysisRationale).to.be.a('string');
+            expect(data.analysisRationale).to.be("");
+            {
+              let dataCtr = data.unsafeUrls;
+              expect(dataCtr).to.be.an(Array);
+              expect(dataCtr).to.not.be.empty();
+              for (let p in dataCtr) {
+                let data = dataCtr[p];
+                expect(data).to.be.a(CloudmersivePhishingapiClient.UnsafeUrlResult);
+                expect(data.url).to.be.a('string');
+                expect(data.url).to.be("");
+                expect(data.cleanResult).to.be.a('boolean');
+                expect(data.cleanResult).to.be(false);
+                expect(data.isSsrfThreat).to.be.a('boolean');
+                expect(data.isSsrfThreat).to.be(false);
+                expect(data.containsPhishing).to.be.a('boolean');
+                expect(data.containsPhishing).to.be(false);
+                expect(data.containsPhishingAttempt).to.be.a('boolean');
+                expect(data.containsPhishingAttempt).to.be(false);
+
+                      }
+            }
+
+            done();
+          });
+          */
+          // TODO: uncomment and complete method invocation above, then delete this line and the next:
+          done();
+        });
+      });
+      describe('phishingDetectTextStringPost', function() {
+        it('should call phishingDetectTextStringPost successfully', function(done) {
+          // TODO: uncomment, update parameter values for phishingDetectTextStringPost call and complete the assertions
+          /*
+          var opts = {};
+          opts.body = new CloudmersivePhishingapiClient.PhishingDetectionTextStringRequest();
+          opts.body.inputString = "Hello, world!";
+          opts.body.model = "Advanced";
+          opts.body.provideAnalysisRationale = true;
+
+          instance.phishingDetectTextStringPost(opts, function(error, data, response) {
+            if (error) {
+              done(error);
+              return;
+            }
+            // TODO: update response assertions
+            expect(data).to.be.a(CloudmersivePhishingapiClient.PhishingDetectionTextStringResponse);
+            expect(data.cleanResult).to.be.a('boolean');
+            expect(data.cleanResult).to.be(false);
             expect(data.confidenceLevel).to.be.a('number');
             expect(data.confidenceLevel).to.be(0.0);
             expect(data.analysisRationale).to.be.a('string');

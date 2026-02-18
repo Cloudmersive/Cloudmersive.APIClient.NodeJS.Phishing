@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/ModelObject'], factory);
+    define(['ApiClient', 'model/ModelObject', 'model/UnsafeUrlResult'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./ModelObject'));
+    module.exports = factory(require('../ApiClient'), require('./ModelObject'), require('./UnsafeUrlResult'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
+    root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject, root.CloudmersivePhishingapiClient.UnsafeUrlResult);
   }
-}(this, function(ApiClient, ModelObject) {
+}(this, function(ApiClient, ModelObject, UnsafeUrlResult) {
   'use strict';
 
   /**
    * The PhishingDetectionAdvancedResponse model module.
    * @module model/PhishingDetectionAdvancedResponse
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**
@@ -59,12 +59,24 @@
       ApiClient.constructFromObject(data, obj, 'ModelObject');
       if (data.hasOwnProperty('CleanResult'))
         obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
-      if (data.hasOwnProperty('PhishingRiskLevel'))
-        obj.phishingRiskLevel = ApiClient.convertToType(data['PhishingRiskLevel'], 'Number');
+      if (data.hasOwnProperty('ContainsPhishing'))
+        obj.containsPhishing = ApiClient.convertToType(data['ContainsPhishing'], 'Boolean');
+      if (data.hasOwnProperty('ContainsUnsolicitedSales'))
+        obj.containsUnsolicitedSales = ApiClient.convertToType(data['ContainsUnsolicitedSales'], 'Boolean');
+      if (data.hasOwnProperty('ContainsPromotionalContent'))
+        obj.containsPromotionalContent = ApiClient.convertToType(data['ContainsPromotionalContent'], 'Boolean');
+      if (data.hasOwnProperty('ContainsWebUrls'))
+        obj.containsWebUrls = ApiClient.convertToType(data['ContainsWebUrls'], 'Boolean');
+      if (data.hasOwnProperty('ContainsPhoneNumbers'))
+        obj.containsPhoneNumbers = ApiClient.convertToType(data['ContainsPhoneNumbers'], 'Boolean');
+      if (data.hasOwnProperty('ContainsEmailAddresses'))
+        obj.containsEmailAddresses = ApiClient.convertToType(data['ContainsEmailAddresses'], 'Boolean');
       if (data.hasOwnProperty('ConfidenceLevel'))
         obj.confidenceLevel = ApiClient.convertToType(data['ConfidenceLevel'], 'Number');
       if (data.hasOwnProperty('AnalysisRationale'))
         obj.analysisRationale = ApiClient.convertToType(data['AnalysisRationale'], 'String');
+      if (data.hasOwnProperty('UnsafeUrls'))
+        obj.unsafeUrls = ApiClient.convertToType(data['UnsafeUrls'], [UnsafeUrlResult]);
     }
     return obj;
   }
@@ -76,10 +88,40 @@
   exports.prototype.cleanResult = undefined;
 
   /**
-   * Overall phishing risk level between 0.0 and 1.0
-   * @member {Number} phishingRiskLevel
+   * True if the input text contains a phishing attempt, false otherwise
+   * @member {Boolean} containsPhishing
    */
-  exports.prototype.phishingRiskLevel = undefined;
+  exports.prototype.containsPhishing = undefined;
+
+  /**
+   * True if the input text contains unsolicited sales, false otherwise
+   * @member {Boolean} containsUnsolicitedSales
+   */
+  exports.prototype.containsUnsolicitedSales = undefined;
+
+  /**
+   * True if the input text contains promotional content, false otherwise
+   * @member {Boolean} containsPromotionalContent
+   */
+  exports.prototype.containsPromotionalContent = undefined;
+
+  /**
+   * True if the input text contains web URLs, including homoglyph URLs and spaced-out URL workarounds
+   * @member {Boolean} containsWebUrls
+   */
+  exports.prototype.containsWebUrls = undefined;
+
+  /**
+   * True if the input text contains phone numbers, including homoglyph digits and spaced-out or spelled-out workarounds
+   * @member {Boolean} containsPhoneNumbers
+   */
+  exports.prototype.containsPhoneNumbers = undefined;
+
+  /**
+   * True if the input text contains email addresses, including homoglyph characters and obfuscated workarounds
+   * @member {Boolean} containsEmailAddresses
+   */
+  exports.prototype.containsEmailAddresses = undefined;
 
   /**
    * Confidence level between 0.0 and 1.0 where values over 0.9 indicate high confidence
@@ -92,6 +134,12 @@
    * @member {String} analysisRationale
    */
   exports.prototype.analysisRationale = undefined;
+
+  /**
+   * URLs detected in the input text that were analyzed and found to be unsafe. Only populated when ProvideUrlAnalysis is true and URLs are detected.
+   * @member {Array.<module:model/UnsafeUrlResult>} unsafeUrls
+   */
+  exports.prototype.unsafeUrls = undefined;
 
   exports.prototype.additionalProperties = new Map();
 

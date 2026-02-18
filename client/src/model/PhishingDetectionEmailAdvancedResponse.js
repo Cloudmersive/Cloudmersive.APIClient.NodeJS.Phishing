@@ -33,7 +33,7 @@
   /**
    * The PhishingDetectionEmailAdvancedResponse model module.
    * @module model/PhishingDetectionEmailAdvancedResponse
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**

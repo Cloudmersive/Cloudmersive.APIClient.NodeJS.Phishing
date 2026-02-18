@@ -46,10 +46,40 @@
         // expect(instance.cleanResult).to.be(expectedValueLiteral);
       });
 
-      it('should have the property phishingRiskLevel (base name: "PhishingRiskLevel")', function() {
-        // TODO: update the code to test the property phishingRiskLevel
-        expect(instance).to.have.property('phishingRiskLevel');
-        // expect(instance.phishingRiskLevel).to.be(expectedValueLiteral);
+      it('should have the property containsPhishing (base name: "ContainsPhishing")', function() {
+        // TODO: update the code to test the property containsPhishing
+        expect(instance).to.have.property('containsPhishing');
+        // expect(instance.containsPhishing).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property containsUnsolicitedSales (base name: "ContainsUnsolicitedSales")', function() {
+        // TODO: update the code to test the property containsUnsolicitedSales
+        expect(instance).to.have.property('containsUnsolicitedSales');
+        // expect(instance.containsUnsolicitedSales).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property containsPromotionalContent (base name: "ContainsPromotionalContent")', function() {
+        // TODO: update the code to test the property containsPromotionalContent
+        expect(instance).to.have.property('containsPromotionalContent');
+        // expect(instance.containsPromotionalContent).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property containsWebUrls (base name: "ContainsWebUrls")', function() {
+        // TODO: update the code to test the property containsWebUrls
+        expect(instance).to.have.property('containsWebUrls');
+        // expect(instance.containsWebUrls).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property containsPhoneNumbers (base name: "ContainsPhoneNumbers")', function() {
+        // TODO: update the code to test the property containsPhoneNumbers
+        expect(instance).to.have.property('containsPhoneNumbers');
+        // expect(instance.containsPhoneNumbers).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property containsEmailAddresses (base name: "ContainsEmailAddresses")', function() {
+        // TODO: update the code to test the property containsEmailAddresses
+        expect(instance).to.have.property('containsEmailAddresses');
+        // expect(instance.containsEmailAddresses).to.be(expectedValueLiteral);
       });
 
       it('should have the property confidenceLevel (base name: "ConfidenceLevel")', function() {
@@ -62,6 +92,12 @@
         // TODO: update the code to test the property analysisRationale
         expect(instance).to.have.property('analysisRationale');
         // expect(instance.analysisRationale).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property unsafeUrls (base name: "UnsafeUrls")', function() {
+        // TODO: update the code to test the property unsafeUrls
+        expect(instance).to.have.property('unsafeUrls');
+        // expect(instance.unsafeUrls).to.be(expectedValueLiteral);
       });
 
     });

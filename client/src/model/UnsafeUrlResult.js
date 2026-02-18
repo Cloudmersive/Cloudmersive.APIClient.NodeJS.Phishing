@@ -25,21 +25,21 @@
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
+    root.CloudmersivePhishingapiClient.UnsafeUrlResult = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
   }
 }(this, function(ApiClient, ModelObject) {
   'use strict';
 
   /**
-   * The PhishingDetectionResponse model module.
-   * @module model/PhishingDetectionResponse
+   * The UnsafeUrlResult model module.
+   * @module model/UnsafeUrlResult
    * @version 2.0.3
    */
 
   /**
-   * Constructs a new <code>PhishingDetectionResponse</code>.
-   * Result of detecting phishing using AI
-   * @alias module:model/PhishingDetectionResponse
+   * Constructs a new <code>UnsafeUrlResult</code>.
+   * Result of analyzing an individual URL found in text
+   * @alias module:model/UnsafeUrlResult
    * @class
    * @extends Object
    */
@@ -47,27 +47,59 @@
   };
 
   /**
-   * Constructs a <code>PhishingDetectionResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>UnsafeUrlResult</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PhishingDetectionResponse} obj Optional instance to populate.
-   * @return {module:model/PhishingDetectionResponse} The populated <code>PhishingDetectionResponse</code> instance.
+   * @param {module:model/UnsafeUrlResult} obj Optional instance to populate.
+   * @return {module:model/UnsafeUrlResult} The populated <code>UnsafeUrlResult</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
       ApiClient.constructFromObject(data, obj, 'ModelObject');
+      if (data.hasOwnProperty('Url'))
+        obj.url = ApiClient.convertToType(data['Url'], 'String');
       if (data.hasOwnProperty('CleanResult'))
         obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
+      if (data.hasOwnProperty('IsSsrfThreat'))
+        obj.isSsrfThreat = ApiClient.convertToType(data['IsSsrfThreat'], 'Boolean');
+      if (data.hasOwnProperty('ContainsPhishing'))
+        obj.containsPhishing = ApiClient.convertToType(data['ContainsPhishing'], 'Boolean');
+      if (data.hasOwnProperty('ContainsPhishingAttempt'))
+        obj.containsPhishingAttempt = ApiClient.convertToType(data['ContainsPhishingAttempt'], 'Boolean');
     }
     return obj;
   }
+
+  /**
+   * The URL that was detected and analyzed
+   * @member {String} url
+   */
+  exports.prototype.url = undefined;
 
   /**
    * True if the result is not phishing (clean), and false otherwise
    * @member {Boolean} cleanResult
    */
   exports.prototype.cleanResult = undefined;
+
+  /**
+   * True if the URL is an SSRF threat
+   * @member {Boolean} isSsrfThreat
+   */
+  exports.prototype.isSsrfThreat = undefined;
+
+  /**
+   * True if the URL contains phishing threat risks, false otherwise
+   * @member {Boolean} containsPhishing
+   */
+  exports.prototype.containsPhishing = undefined;
+
+  /**
+   * True if the URL contains a phishing attempt, false otherwise
+   * @member {Boolean} containsPhishingAttempt
+   */
+  exports.prototype.containsPhishingAttempt = undefined;
 
   exports.prototype.additionalProperties = new Map();
 

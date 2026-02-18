@@ -33,7 +33,7 @@
   /**
    * The PhishingDetectionAdvancedRequest model module.
    * @module model/PhishingDetectionAdvancedRequest
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**
@@ -59,14 +59,26 @@
       ApiClient.constructFromObject(data, obj, 'ModelObject');
       if (data.hasOwnProperty('InputString'))
         obj.inputString = ApiClient.convertToType(data['InputString'], 'String');
+      if (data.hasOwnProperty('TextType'))
+        obj.textType = ApiClient.convertToType(data['TextType'], 'String');
       if (data.hasOwnProperty('Model'))
         obj.model = ApiClient.convertToType(data['Model'], 'String');
+      if (data.hasOwnProperty('AllowUnsolicitedSales'))
+        obj.allowUnsolicitedSales = ApiClient.convertToType(data['AllowUnsolicitedSales'], 'Boolean');
+      if (data.hasOwnProperty('AllowPromotionalContent'))
+        obj.allowPromotionalContent = ApiClient.convertToType(data['AllowPromotionalContent'], 'Boolean');
+      if (data.hasOwnProperty('AllowWebUrls'))
+        obj.allowWebUrls = ApiClient.convertToType(data['AllowWebUrls'], 'Boolean');
+      if (data.hasOwnProperty('AllowPhoneNumbers'))
+        obj.allowPhoneNumbers = ApiClient.convertToType(data['AllowPhoneNumbers'], 'Boolean');
+      if (data.hasOwnProperty('AllowEmailAddresses'))
+        obj.allowEmailAddresses = ApiClient.convertToType(data['AllowEmailAddresses'], 'Boolean');
+      if (data.hasOwnProperty('ProvideUrlAnalysis'))
+        obj.provideUrlAnalysis = ApiClient.convertToType(data['ProvideUrlAnalysis'], 'Boolean');
       if (data.hasOwnProperty('CustomPolicyID'))
         obj.customPolicyID = ApiClient.convertToType(data['CustomPolicyID'], 'String');
       if (data.hasOwnProperty('ProvideAnalysisRationale'))
         obj.provideAnalysisRationale = ApiClient.convertToType(data['ProvideAnalysisRationale'], 'Boolean');
-      if (data.hasOwnProperty('TextType'))
-        obj.textType = ApiClient.convertToType(data['TextType'], 'String');
       if (data.hasOwnProperty('FromName'))
         obj.fromName = ApiClient.convertToType(data['FromName'], 'String');
       if (data.hasOwnProperty('ToName'))
@@ -90,10 +102,52 @@
   exports.prototype.inputString = undefined;
 
   /**
+   * Optional: Type of text being analyzed. Must be one of: \"TextMessage\", \"UserMessage\", \"SalesLead\", \"EmailMessage\", \"SupportCase\", \"AppMessage\", \"Other\".
+   * @member {String} textType
+   */
+  exports.prototype.textType = undefined;
+
+  /**
    * Optional: Specify which AI model to use.  Possible choices are Normal and Advanced.  Default is Advanced.
    * @member {String} model
    */
   exports.prototype.model = undefined;
+
+  /**
+   * Optional: True if unsolicited sales should be allowed, false otherwise. Defaults to true.
+   * @member {Boolean} allowUnsolicitedSales
+   */
+  exports.prototype.allowUnsolicitedSales = undefined;
+
+  /**
+   * Optional: True if promotional content should be allowed, false otherwise. Defaults to true.
+   * @member {Boolean} allowPromotionalContent
+   */
+  exports.prototype.allowPromotionalContent = undefined;
+
+  /**
+   * Optional: True if web URLs should be allowed in the input text, false otherwise. Defaults to true. When false, input containing URLs (including homoglyph URLs and spaced-out URLs) will be flagged as not clean.
+   * @member {Boolean} allowWebUrls
+   */
+  exports.prototype.allowWebUrls = undefined;
+
+  /**
+   * Optional: True if phone numbers should be allowed in the input text, false otherwise. Defaults to true. When false, input containing phone numbers (including homoglyph digits and spaced-out or spelled-out workarounds) will be flagged as not clean.
+   * @member {Boolean} allowPhoneNumbers
+   */
+  exports.prototype.allowPhoneNumbers = undefined;
+
+  /**
+   * Optional: True if email addresses should be allowed in the input text, false otherwise. Defaults to true. When false, input containing email addresses (including homoglyph characters and obfuscated workarounds like \"danny at somedomaine [DOT] com\") will be flagged as not clean.
+   * @member {Boolean} allowEmailAddresses
+   */
+  exports.prototype.allowEmailAddresses = undefined;
+
+  /**
+   * Optional: True to perform deep URL analysis on any URLs detected in the text. When enabled, if the initial AI scan detects URLs, a second AI call enumerates them and each URL is individually analyzed for phishing. Defaults to true.
+   * @member {Boolean} provideUrlAnalysis
+   */
+  exports.prototype.provideUrlAnalysis = undefined;
 
   /**
    * Apply a Custom Policy for Phishing Enforcement by providing the ID; to create a Custom Policy,  navigate to the Cloudmersive Management Portal and select Custom Policies.  Requires Managed Instance or Private Cloud
@@ -106,12 +160,6 @@
    * @member {Boolean} provideAnalysisRationale
    */
   exports.prototype.provideAnalysisRationale = undefined;
-
-  /**
-   * Optional: Type of text being analyzed. Must be one of: \"Text Message\", \"User Message\", \"Sales Lead\", \"Email Message\", \"Support Case\", \"Other\".
-   * @member {String} textType
-   */
-  exports.prototype.textType = undefined;
 
   /**
    * Optional: Name of the sender

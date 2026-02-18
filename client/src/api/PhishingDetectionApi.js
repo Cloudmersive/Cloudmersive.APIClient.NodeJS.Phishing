@@ -16,24 +16,24 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionUrlAdvancedResponse'], factory);
+    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionTextStringRequest', 'model/PhishingDetectionTextStringResponse', 'model/PhishingDetectionUrlAdvancedResponse'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/AdvancedEmailDetectionRequest'), require('../model/AdvancedUrlDetectionRequest'), require('../model/PhishingDetectionAdvancedRequest'), require('../model/PhishingDetectionAdvancedResponse'), require('../model/PhishingDetectionEmailAdvancedResponse'), require('../model/PhishingDetectionResponse'), require('../model/PhishingDetectionUrlAdvancedResponse'));
+    module.exports = factory(require('../ApiClient'), require('../model/AdvancedEmailDetectionRequest'), require('../model/AdvancedUrlDetectionRequest'), require('../model/PhishingDetectionAdvancedRequest'), require('../model/PhishingDetectionAdvancedResponse'), require('../model/PhishingDetectionEmailAdvancedResponse'), require('../model/PhishingDetectionResponse'), require('../model/PhishingDetectionTextStringRequest'), require('../model/PhishingDetectionTextStringResponse'), require('../model/PhishingDetectionUrlAdvancedResponse'));
   } else {
     // Browser globals (root is window)
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionApi = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.AdvancedEmailDetectionRequest, root.CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionEmailAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionResponse, root.CloudmersivePhishingapiClient.PhishingDetectionUrlAdvancedResponse);
+    root.CloudmersivePhishingapiClient.PhishingDetectionApi = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.AdvancedEmailDetectionRequest, root.CloudmersivePhishingapiClient.AdvancedUrlDetectionRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedRequest, root.CloudmersivePhishingapiClient.PhishingDetectionAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionEmailAdvancedResponse, root.CloudmersivePhishingapiClient.PhishingDetectionResponse, root.CloudmersivePhishingapiClient.PhishingDetectionTextStringRequest, root.CloudmersivePhishingapiClient.PhishingDetectionTextStringResponse, root.CloudmersivePhishingapiClient.PhishingDetectionUrlAdvancedResponse);
   }
-}(this, function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionUrlAdvancedResponse) {
+}(this, function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionTextStringRequest, PhishingDetectionTextStringResponse, PhishingDetectionUrlAdvancedResponse) {
   'use strict';
 
   /**
    * PhishingDetection service.
    * @module api/PhishingDetectionApi
-   * @version 2.0.2
+   * @version 2.0.3
    */
 
   /**
@@ -222,6 +222,49 @@
 
       return this.apiClient.callApi(
         '/phishing/detect/text-string/advanced', 'POST',
+        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the phishingDetectTextStringPost operation.
+     * @callback module:api/PhishingDetectionApi~phishingDetectTextStringPostCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PhishingDetectionTextStringResponse} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Perform AI phishing detection against input text string.  Returns a clean/not-clean result with confidence level and optional rationale.
+     * @param {Object} opts Optional parameters
+     * @param {module:model/PhishingDetectionTextStringRequest} opts.body Phishing detection request
+     * @param {module:api/PhishingDetectionApi~phishingDetectTextStringPostCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PhishingDetectionTextStringResponse}
+     */
+    this.phishingDetectTextStringPost = function(opts, callback) {
+      opts = opts || {};
+      var postBody = opts['body'];
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var collectionQueryParams = {
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = ['Apikey'];
+      var contentTypes = ['application/json', 'text/json', 'application/_*+json'];
+      var accepts = ['text/plain', 'application/json', 'text/json'];
+      var returnType = PhishingDetectionTextStringResponse;
+
+      return this.apiClient.callApi(
+        '/phishing/detect/text-string', 'POST',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -16,12 +16,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionUrlAdvancedResponse', 'api/PhishingDetectionApi'], factory);
+    define(['ApiClient', 'model/AdvancedEmailDetectionRequest', 'model/AdvancedUrlDetectionRequest', 'model/PhishingDetectionAdvancedRequest', 'model/PhishingDetectionAdvancedResponse', 'model/PhishingDetectionEmailAdvancedResponse', 'model/PhishingDetectionResponse', 'model/PhishingDetectionTextStringRequest', 'model/PhishingDetectionTextStringResponse', 'model/PhishingDetectionUrlAdvancedResponse', 'model/UnsafeUrlResult', 'api/PhishingDetectionApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/AdvancedEmailDetectionRequest'), require('./model/AdvancedUrlDetectionRequest'), require('./model/PhishingDetectionAdvancedRequest'), require('./model/PhishingDetectionAdvancedResponse'), require('./model/PhishingDetectionEmailAdvancedResponse'), require('./model/PhishingDetectionResponse'), require('./model/PhishingDetectionUrlAdvancedResponse'), require('./api/PhishingDetectionApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/AdvancedEmailDetectionRequest'), require('./model/AdvancedUrlDetectionRequest'), require('./model/PhishingDetectionAdvancedRequest'), require('./model/PhishingDetectionAdvancedResponse'), require('./model/PhishingDetectionEmailAdvancedResponse'), require('./model/PhishingDetectionResponse'), require('./model/PhishingDetectionTextStringRequest'), require('./model/PhishingDetectionTextStringResponse'), require('./model/PhishingDetectionUrlAdvancedResponse'), require('./model/UnsafeUrlResult'), require('./api/PhishingDetectionApi'));
   }
-}(function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionUrlAdvancedResponse, PhishingDetectionApi) {
+}(function(ApiClient, AdvancedEmailDetectionRequest, AdvancedUrlDetectionRequest, PhishingDetectionAdvancedRequest, PhishingDetectionAdvancedResponse, PhishingDetectionEmailAdvancedResponse, PhishingDetectionResponse, PhishingDetectionTextStringRequest, PhishingDetectionTextStringResponse, PhishingDetectionUrlAdvancedResponse, UnsafeUrlResult, PhishingDetectionApi) {
   'use strict';
 
   /**
@@ -53,7 +53,7 @@
    * </pre>
    * </p>
    * @module index
-   * @version 2.0.2
+   * @version 2.0.3
    */
   var exports = {
     /**
@@ -92,10 +92,25 @@
      */
     PhishingDetectionResponse: PhishingDetectionResponse,
     /**
+     * The PhishingDetectionTextStringRequest model constructor.
+     * @property {module:model/PhishingDetectionTextStringRequest}
+     */
+    PhishingDetectionTextStringRequest: PhishingDetectionTextStringRequest,
+    /**
+     * The PhishingDetectionTextStringResponse model constructor.
+     * @property {module:model/PhishingDetectionTextStringResponse}
+     */
+    PhishingDetectionTextStringResponse: PhishingDetectionTextStringResponse,
+    /**
      * The PhishingDetectionUrlAdvancedResponse model constructor.
      * @property {module:model/PhishingDetectionUrlAdvancedResponse}
      */
     PhishingDetectionUrlAdvancedResponse: PhishingDetectionUrlAdvancedResponse,
+    /**
+     * The UnsafeUrlResult model constructor.
+     * @property {module:model/UnsafeUrlResult}
+     */
+    UnsafeUrlResult: UnsafeUrlResult,
     /**
      * The PhishingDetectionApi service constructor.
      * @property {module:api/PhishingDetectionApi}

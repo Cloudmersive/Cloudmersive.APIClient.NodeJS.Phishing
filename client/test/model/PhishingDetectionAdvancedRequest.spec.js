@@ -46,10 +46,52 @@
         // expect(instance.inputString).to.be(expectedValueLiteral);
       });
 
+      it('should have the property textType (base name: "TextType")', function() {
+        // TODO: update the code to test the property textType
+        expect(instance).to.have.property('textType');
+        // expect(instance.textType).to.be(expectedValueLiteral);
+      });
+
       it('should have the property model (base name: "Model")', function() {
         // TODO: update the code to test the property model
         expect(instance).to.have.property('model');
         // expect(instance.model).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowUnsolicitedSales (base name: "AllowUnsolicitedSales")', function() {
+        // TODO: update the code to test the property allowUnsolicitedSales
+        expect(instance).to.have.property('allowUnsolicitedSales');
+        // expect(instance.allowUnsolicitedSales).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowPromotionalContent (base name: "AllowPromotionalContent")', function() {
+        // TODO: update the code to test the property allowPromotionalContent
+        expect(instance).to.have.property('allowPromotionalContent');
+        // expect(instance.allowPromotionalContent).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowWebUrls (base name: "AllowWebUrls")', function() {
+        // TODO: update the code to test the property allowWebUrls
+        expect(instance).to.have.property('allowWebUrls');
+        // expect(instance.allowWebUrls).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowPhoneNumbers (base name: "AllowPhoneNumbers")', function() {
+        // TODO: update the code to test the property allowPhoneNumbers
+        expect(instance).to.have.property('allowPhoneNumbers');
+        // expect(instance.allowPhoneNumbers).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property allowEmailAddresses (base name: "AllowEmailAddresses")', function() {
+        // TODO: update the code to test the property allowEmailAddresses
+        expect(instance).to.have.property('allowEmailAddresses');
+        // expect(instance.allowEmailAddresses).to.be(expectedValueLiteral);
+      });
+
+      it('should have the property provideUrlAnalysis (base name: "ProvideUrlAnalysis")', function() {
+        // TODO: update the code to test the property provideUrlAnalysis
+        expect(instance).to.have.property('provideUrlAnalysis');
+        // expect(instance.provideUrlAnalysis).to.be(expectedValueLiteral);
       });
 
       it('should have the property customPolicyID (base name: "CustomPolicyID")', function() {
@@ -62,12 +104,6 @@
         // TODO: update the code to test the property provideAnalysisRationale
         expect(instance).to.have.property('provideAnalysisRationale');
         // expect(instance.provideAnalysisRationale).to.be(expectedValueLiteral);
-      });
-
-      it('should have the property textType (base name: "TextType")', function() {
-        // TODO: update the code to test the property textType
-        expect(instance).to.have.property('textType');
-        // expect(instance.textType).to.be(expectedValueLiteral);
       });
 
       it('should have the property fromName (base name: "FromName")', function() {

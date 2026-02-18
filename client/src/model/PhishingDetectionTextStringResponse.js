@@ -25,21 +25,21 @@
     if (!root.CloudmersivePhishingapiClient) {
       root.CloudmersivePhishingapiClient = {};
     }
-    root.CloudmersivePhishingapiClient.PhishingDetectionResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
+    root.CloudmersivePhishingapiClient.PhishingDetectionTextStringResponse = factory(root.CloudmersivePhishingapiClient.ApiClient, root.CloudmersivePhishingapiClient.ModelObject);
   }
 }(this, function(ApiClient, ModelObject) {
   'use strict';
 
   /**
-   * The PhishingDetectionResponse model module.
-   * @module model/PhishingDetectionResponse
+   * The PhishingDetectionTextStringResponse model module.
+   * @module model/PhishingDetectionTextStringResponse
    * @version 2.0.3
    */
 
   /**
-   * Constructs a new <code>PhishingDetectionResponse</code>.
-   * Result of detecting phishing using AI
-   * @alias module:model/PhishingDetectionResponse
+   * Constructs a new <code>PhishingDetectionTextStringResponse</code>.
+   * Result of detecting phishing using AI for basic text string analysis
+   * @alias module:model/PhishingDetectionTextStringResponse
    * @class
    * @extends Object
    */
@@ -47,11 +47,11 @@
   };
 
   /**
-   * Constructs a <code>PhishingDetectionResponse</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>PhishingDetectionTextStringResponse</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/PhishingDetectionResponse} obj Optional instance to populate.
-   * @return {module:model/PhishingDetectionResponse} The populated <code>PhishingDetectionResponse</code> instance.
+   * @param {module:model/PhishingDetectionTextStringResponse} obj Optional instance to populate.
+   * @return {module:model/PhishingDetectionTextStringResponse} The populated <code>PhishingDetectionTextStringResponse</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
@@ -59,6 +59,10 @@
       ApiClient.constructFromObject(data, obj, 'ModelObject');
       if (data.hasOwnProperty('CleanResult'))
         obj.cleanResult = ApiClient.convertToType(data['CleanResult'], 'Boolean');
+      if (data.hasOwnProperty('ConfidenceLevel'))
+        obj.confidenceLevel = ApiClient.convertToType(data['ConfidenceLevel'], 'Number');
+      if (data.hasOwnProperty('AnalysisRationale'))
+        obj.analysisRationale = ApiClient.convertToType(data['AnalysisRationale'], 'String');
     }
     return obj;
   }
@@ -68,6 +72,18 @@
    * @member {Boolean} cleanResult
    */
   exports.prototype.cleanResult = undefined;
+
+  /**
+   * Confidence level between 0.0 and 1.0 where values over 0.9 indicate high confidence
+   * @member {Number} confidenceLevel
+   */
+  exports.prototype.confidenceLevel = undefined;
+
+  /**
+   * Rationale for why the conclusion was formed
+   * @member {String} analysisRationale
+   */
+  exports.prototype.analysisRationale = undefined;
 
   exports.prototype.additionalProperties = new Map();
 
